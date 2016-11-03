@@ -25,28 +25,28 @@ public class Driver {
 		raiz.insereAluno(345, "Lyra");
 		raiz.insereAluno(355, "Pantalaimon");
 		
-		System.out.println("");
+//		System.out.println("");
+//		
+//		System.out.print("InOrdem: ");
+//		raiz.percorrerInOrdem();
+//		System.out.println("");
+//		
+//		System.out.print("PreOrdem: ");
+//		raiz.percorrerPreOrdem();
+//		System.out.println("");
+//		
+//		System.out.print("PosOrdem: ");
+//		raiz.percorrerPosOrdem();
+//		System.out.println("");
+//		System.out.println("");
+//		
+//		System.out.println("Busca: raiz.busca(155)");
+//		No resultado = raiz.busca(155);
+//		System.out.println(resultado.getAluno().getNome());
+//		System.out.println("");
+//		System.out.println("");
 		
-		System.out.print("InOrdem: ");
-		raiz.percorrerInOrdem();
-		System.out.println("");
-		
-		System.out.print("PreOrdem: ");
-		raiz.percorrerPreOrdem();
-		System.out.println("");
-		
-		System.out.print("PosOrdem: ");
-		raiz.percorrerPosOrdem();
-		System.out.println("");
-		System.out.println("");
-		
-		System.out.println("Busca: raiz.busca(155)");
-		No resultado = raiz.busca(155);
-		System.out.println(resultado.getAluno().getNome());
-		System.out.println("");
-		System.out.println("");
-		
-		
+		Screen s = new Screen();
 		
 	}
 

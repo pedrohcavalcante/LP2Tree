@@ -27,7 +27,7 @@ public class Tree {
 				if (rightTree == null){
 					rightTree = new Tree();
 					
-					System.out.println("No " + no.getAluno().getNome() + " inserido a direita de " + root.getAluno().getNome());
+					// System.out.println("No " + no.getAluno().getNome() + " inserido a direita de " + root.getAluno().getNome());
 				}
 				this.rightTree.inserir(no);
 			}
@@ -35,7 +35,7 @@ public class Tree {
 				if (leftTree == null){
 					leftTree = new Tree();
 					
-					System.out.println("No " + no.getAluno().getNome() + " inserido a esquerda de " + root.getAluno().getNome());
+					// System.out.println("No " + no.getAluno().getNome() + " inserido a esquerda de " + root.getAluno().getNome());
 				}
 				this.leftTree.inserir(no);
 			}
