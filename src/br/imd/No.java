@@ -16,4 +16,7 @@ public class No {
         this.aluno = aluno;
     }
     
+    public void print() {
+    	System.out.println("Nome: " + aluno.getNome() + " | Matrícula: " + aluno.getMatricula());
+    }
 }

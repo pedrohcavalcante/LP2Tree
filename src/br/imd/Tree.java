@@ -7,31 +7,9 @@ public class Tree {
 	private Tree rightTree;
 	
 	public Tree(){
-		// construtor vazio
-	}
-	
-	public Tree getRightTree(){
-		return rightTree;
-	}
-	
-	public void setRightTree(Tree rightTree){
-		this.rightTree = rightTree;
-	}
-	
-	public Tree getLeftTree(){
-		return leftTree;
-	}
-	
-	public void setLeftTree(Tree leftTree){
-		this.leftTree = leftTree;
-	}
-	
-	public No getRoot() {
-	        return root;
-	}
-
-	public void setRoot(No root) {
-	        this.root = root;
+		root = null;
+		leftTree = null;
+		rightTree = null;
 	}
 	
 	public void insereAluno(int matricula, String nome) {
@@ -40,18 +18,24 @@ public class Tree {
         inserir(no);
     }
 
-	public void inserir(No no) {
+	private void inserir(No no) {
 		if(this.root == null){
 		   this.root = no;
-		}else{
-			if (no.getAluno().getMatricula() > this.root.getAluno().getMatricula()){
-				if (this.rightTree == null){
-					this.rightTree = new Tree();
+		}
+		else {
+			if (no.getAluno().getMatricula() > root.getAluno().getMatricula()){
+				if (rightTree == null){
+					rightTree = new Tree();
+					
+					System.out.println("No " + no.getAluno().getNome() + " inserido a direita de " + root.getAluno().getNome());
 				}
 				this.rightTree.inserir(no);
-			}else if (no.getAluno().getMatricula() < this.root.getAluno().getMatricula()){
-				if (this.leftTree == null){
-					this.leftTree = new Tree();
+			}
+			else if (no.getAluno().getMatricula() < root.getAluno().getMatricula()){
+				if (leftTree == null){
+					leftTree = new Tree();
+					
+					System.out.println("No " + no.getAluno().getNome() + " inserido a esquerda de " + root.getAluno().getNome());
 				}
 				this.leftTree.inserir(no);
 			}
@@ -59,12 +43,83 @@ public class Tree {
 		
 	}
 	
-	// faltando implementar a busca
+	private void visita(No no) {
+		System.out.print(no.getAluno().getMatricula() + " ");
+	}
 	
-	// faltando implementar percorrerInOrdem();
+	public No busca(int matricula) {
+		
+		// Chegou ao fim de um caminho e nao achou
+		if (matricula != root.getAluno().getMatricula() && leftTree == null && rightTree == null) {
+			return null;
+		}
+		// Achou
+		else if (matricula == root.getAluno().getMatricula()) {
+			System.out.println("Achou!");
+			
+			System.out.println("Retornando o no de nome " + root.getAluno().getNome() + " e matricula " + root.getAluno().getMatricula() + "...");
+			
+			return root;
+		}
+		// Nao acho e procura na arvore direita
+		else if (matricula > root.getAluno().getMatricula()) {
+			System.out.println("Nao achou e busca na arvore direita");
+			
+			rightTree.busca(matricula);
+		}
+		// Nao acho e procura na arvore esquerda
+		else if (matricula < root.getAluno().getMatricula()) {
+			System.out.println("Nao achou e busca na arvore esquerda");
+			
+			leftTree.busca(matricula);
+		}
+		
+		return null;
+	}
+
+	public void percorrerInOrdem() {
+		// Visita arvore esquerda
+		if (this.leftTree != null) {
+			leftTree.percorrerInOrdem();
+		}
+		
+		// Visita no
+		visita(this.root);
+		
+		// Visita arvore direita
+		if (this.rightTree != null) {
+			rightTree.percorrerInOrdem();
+		}
+	}
 	
-	// faltando implementar percorrerPreOrdem();
+	public void percorrerPreOrdem() {
+		// Visita no
+		visita(this.root);
+		
+		// Visita arvore esquerda
+		if (this.leftTree != null) {
+			leftTree.percorrerPreOrdem();
+		}
+		
+		// Visita arvore direita
+		if (this.rightTree != null) {
+			rightTree.percorrerPreOrdem();
+		}
+	}
 	
-	// faltando implementar percorrerPosOrdem();
+	public void percorrerPosOrdem() {
+		// Visita arvore esquerda
+		if (this.leftTree != null) {
+			leftTree.percorrerPosOrdem();
+		}
+
+		// Visita arvore direita
+		if (this.rightTree != null) {
+			rightTree.percorrerPosOrdem();
+		}
+		
+		// Visita no
+		visita(this.root);
+	}
 
 }
