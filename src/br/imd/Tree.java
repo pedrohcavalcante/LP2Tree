@@ -51,32 +51,26 @@ public class Tree {
 		
 		// Chegou ao fim de um caminho e nao achou
 		if (matricula != root.getAluno().getMatricula() && leftTree == null && rightTree == null) {
+			
 			return null;
 		}
 		// Achou
 		else if (matricula == root.getAluno().getMatricula()) {
-			System.out.println("Achou!");
-			
-			System.out.println("Retornando o no de nome " + root.getAluno().getNome() + " e matricula " + root.getAluno().getMatricula() + "...");
 			
 			return root;
 		}
-		// Nao acho e procura na arvore direita
+		// Nao achou e procura na arvore direita
 		else if (matricula > root.getAluno().getMatricula()) {
-			System.out.println("Nao achou e busca na arvore direita");
 			
-			rightTree.busca(matricula);
+			return rightTree.busca(matricula);
 		}
-		// Nao acho e procura na arvore esquerda
-		else if (matricula < root.getAluno().getMatricula()) {
-			System.out.println("Nao achou e busca na arvore esquerda");
+		// Nao achou e procura na arvore esquerda
+		else {
 			
-			leftTree.busca(matricula);
+			return leftTree.busca(matricula);
 		}
-		
-		return null;
 	}
-
+	
 	public void percorrerInOrdem() {
 		// Visita arvore esquerda
 		if (this.leftTree != null) {
@@ -121,5 +115,4 @@ public class Tree {
 		// Visita no
 		visita(this.root);
 	}
-
 }

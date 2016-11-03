@@ -42,9 +42,12 @@ public class Driver {
 		
 		System.out.println("Busca: raiz.busca(155)");
 		No resultado = raiz.busca(155);
+		System.out.println(resultado.getAluno().getNome());
+		System.out.println("");
+		System.out.println("");
 		
-		// Nullpointer nisso daqui :/
-		System.out.println(raiz.busca(155).getAluno());
+		
+		
 	}
 
 }
