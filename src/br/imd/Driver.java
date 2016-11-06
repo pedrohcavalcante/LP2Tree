@@ -1,12 +1,20 @@
 package br.imd;
 
-public class Driver {
+import java.awt.Canvas;
+import java.awt.Graphics;
 
-	public static void main(String[] args) {
+@SuppressWarnings("serial")
+public class Driver  extends Canvas {
+	
+	
+	static Graphics g2;
+	
+	
+	public static void main(String[] args){
 		
-		Tree raiz = new Tree();
+		//Tree raiz = new Tree();
 		// Nivel 1
-		raiz.insereAluno(200, "Tristram"); 
+		/*raiz.insereAluno(200, "Tristram"); 
 		// Nivel 2
 		raiz.insereAluno(100, "Blanche"); 
 		raiz.insereAluno(300, "Poe");
@@ -24,7 +32,7 @@ public class Driver {
 		raiz.insereAluno(255, "Roocker");
 		raiz.insereAluno(345, "Lyra");
 		raiz.insereAluno(355, "Pantalaimon");
-		
+		*/
 //		System.out.println("");
 //		
 //		System.out.print("InOrdem: ");
@@ -46,8 +54,10 @@ public class Driver {
 //		System.out.println("");
 //		System.out.println("");
 		
-		Screen s = new Screen();
+		//Screen s = new Screen(raiz.isRoot);
 		
+		@SuppressWarnings("unused")
+		TelaPrincipal tela = new TelaPrincipal();
 	}
 
 }

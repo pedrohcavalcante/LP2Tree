@@ -1,10 +1,13 @@
 package br.imd;
 
+import java.awt.Graphics;
+
 public class Tree {
 	
 	private No root;
 	private Tree leftTree;
 	private Tree rightTree;
+	public boolean isRoot;
 	
 	public Tree(){
 		root = null;
@@ -12,15 +15,40 @@ public class Tree {
 		rightTree = null;
 	}
 	
+	public No getRoot() {
+		return root;
+	}
+
+	public void setRoot(No root) {
+		this.root = root;
+	}
+
+	public Tree getLeftTree() {
+		return leftTree;
+	}
+
+	public void setLeftTree(Tree leftTree) {
+		this.leftTree = leftTree;
+	}
+
+	public Tree getRightTree() {
+		return rightTree;
+	}
+
+	public void setRightTree(Tree rightTree) {
+		this.rightTree = rightTree;
+	}
+
 	public void insereAluno(int matricula, String nome) {
         Aluno aluno = new Aluno(matricula, nome);
         No no = new No(aluno);
         inserir(no);
     }
-
+	
 	private void inserir(No no) {
 		if(this.root == null){
 		   this.root = no;
+		   isRoot = true;
 		}
 		else {
 			if (no.getAluno().getMatricula() > root.getAluno().getMatricula()){
@@ -114,5 +142,9 @@ public class Tree {
 		
 		// Visita no
 		visita(this.root);
+	}
+	
+	public void desenharNo(Graphics g, int screenWidth, int screenHeight) {
+		g.fillOval(screenWidth / 2 - 50 / 2, screenHeight + 10, 50, 50);
 	}
 }
