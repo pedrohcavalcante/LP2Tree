@@ -72,8 +72,14 @@ public class TelaPrincipal extends JFrame {
 				String nome = JOptionPane.showInputDialog(null, "Insira nome");
 				
 				// TODO: tratar erro de quando o input for textual e nao numerico
-				int matricula = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira matricula"));
-								
+				int matricula ;
+					try{
+						matricula = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira matricula"));
+					}catch (NumberFormatException nx){
+						System.out.println("erro");
+						matricula = Integer.parseInt(JOptionPane.showInputDialog(null, "Entrada invalida. Insira matricula"));
+					}
+												
 				arvore.insereAluno(matricula, nome);
 				
 				Graphics g = canvas.getGraphics();				
