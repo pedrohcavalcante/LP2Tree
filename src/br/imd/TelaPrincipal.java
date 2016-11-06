@@ -33,7 +33,9 @@ public class TelaPrincipal extends JFrame {
 	JMenuItem preOrder = new JMenuItem("Pre-Ordem");
 	JMenuItem porOrder = new JMenuItem("Pós-Ordem");
 	JMenuItem inOrder = new JMenuItem("In-Ordem");
-	
+	/**
+	 * Tela principal onde sao instanciados os botoes e onde e feito o desenho da arvore
+	 */
 	public TelaPrincipal() {
 		
 		arvore.insereAluno(200, "Tristram"); 
@@ -68,7 +70,9 @@ public class TelaPrincipal extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		
+		/**
+		 * Método onde e implementada a acao dos botoes
+		 */
 		updtTree.addActionListener(new ActionListener() {
 			
 			@Override
@@ -124,7 +128,14 @@ public class TelaPrincipal extends JFrame {
 		});
 		
 	}
-	
+	/**
+	 * Metodo para desenhar a arvore recursivamente
+	 * @param arvore tipo Tree
+	 * @param screenBegin comeco da tela
+	 * @param screenEnd final da tela
+	 * @param height altura do elemento em relacao ao topo da tela
+	 * @param g grafico para desenho
+	 */
 	public void desenharArvore(Tree arvore, int screenBegin, int screenEnd, int height, Graphics g) {
 		System.out.println("TELA>>> BEGIN: " + screenBegin + " END: " + screenEnd + 
 				"\nArvore.getNO(): " + arvore.getRoot().getAluno().getMatricula());
@@ -151,6 +162,9 @@ public class TelaPrincipal extends JFrame {
 	public class MyCanvas extends Canvas {
 			
 		@Override
+		/**
+		 * Metodo paint()
+		 */
 		public void paint(Graphics g) {
 
 		}

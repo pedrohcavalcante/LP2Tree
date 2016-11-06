@@ -4,7 +4,11 @@ public class Aluno {
 	
     private int matricula;
     private String nome;
-
+    /**
+     * Metodo construtor da classe Aluno
+     * @param mat
+     * @param nome
+     */
     public Aluno(int mat, String nome) {
         this.matricula = mat;
         this.nome = nome;
