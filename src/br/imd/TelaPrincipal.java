@@ -18,8 +18,6 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class TelaPrincipal extends JFrame {
 	
-	// Lala
-	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	private Tree arvore = new Tree();
@@ -31,7 +29,8 @@ public class TelaPrincipal extends JFrame {
 	JMenuBar setJMenu = new JMenuBar();
 	JMenu options = new JMenu("Opções");
 	JMenu ordenar = new JMenu("Imprimir Árvore na linha de comando");
-	JMenuItem addElemento = new JMenuItem("Adicionar Elemento");
+	JMenuItem addElement = new JMenuItem("Adicionar elemento");
+	JMenuItem searchElement = new JMenuItem("Buscar elemento");
 	JMenuItem generateTree = new JMenuItem("Gerar arvore automatica");	
 	JMenuItem preOrder = new JMenuItem("Pre-Ordem");
 	JMenuItem porOrder = new JMenuItem("Pós-Ordem");
@@ -42,7 +41,8 @@ public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {		
 		
 		setJMenu.add(options);
-		options.add(addElemento);
+		options.add(addElement);
+		options.add(searchElement);
 		options.add(generateTree);
 		setJMenu.add(ordenar);
 		ordenar.add(preOrder);
@@ -65,7 +65,7 @@ public class TelaPrincipal extends JFrame {
 		 * Método onde e implementada a acao dos botoes
 		 */
 		
-		addElemento.addActionListener(new ActionListener() {
+		addElement.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -78,6 +78,25 @@ public class TelaPrincipal extends JFrame {
 				
 				Graphics g = canvas.getGraphics();				
 				desenharArvore(arvore, 0, screenSize.width, 0, g);
+			}
+		});
+		
+		searchElement.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String matricula = JOptionPane.showInputDialog(null, "Insira matricula a ser buscada");
+				
+				No resultado = arvore.busca(Integer.parseInt(matricula));
+				
+				// Nao achou
+				if (resultado == null) {
+					JOptionPane.showMessageDialog(null, "Matricula nao encontrada");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Matricula encontrada.\nAluno: " + resultado.getAluno().getNome());
+				}	
 			}
 		});
 		
@@ -141,7 +160,8 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		
-	}
+	}	
+	
 	/**
 	 * Metodo para desenhar a arvore recursivamente
 	 * @param arvore tipo Tree
