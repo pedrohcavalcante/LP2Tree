@@ -21,7 +21,8 @@ public class TelaPrincipal extends JFrame {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	private Tree arvore = new Tree();
-	int noSize = 50;
+	int noAltura = 40;
+	int noLargura = 80;
 	
 	private MyCanvas canvas = new MyCanvas();
 	
@@ -38,6 +39,7 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		
+		// Nivel 1
 		arvore.insereAluno(200, "Tristram"); 
 		// Nivel 2
 		arvore.insereAluno(100, "Blanche"); 
@@ -47,7 +49,15 @@ public class TelaPrincipal extends JFrame {
 		arvore.insereAluno(150, "Jannet");
 		arvore.insereAluno(250, "Brad");
 		arvore.insereAluno(350, "Smith");
-		//arvore.insereAluno(450, "Pedro");
+		// Nivel 4
+		arvore.insereAluno(45, "Howard");
+		arvore.insereAluno(55, "Peter");
+		arvore.insereAluno(145, "Holly");
+		arvore.insereAluno(155, "Blue");
+		arvore.insereAluno(245, "Misty");
+		arvore.insereAluno(255, "Roocker");
+		arvore.insereAluno(345, "Lyra");
+		arvore.insereAluno(355, "Pantalaimon");
 		
 		
 		setJMenu.add(options);
@@ -137,25 +147,22 @@ public class TelaPrincipal extends JFrame {
 	 * @param g grafico para desenho
 	 */
 	public void desenharArvore(Tree arvore, int screenBegin, int screenEnd, int height, Graphics g) {
-		System.out.println("TELA>>> BEGIN: " + screenBegin + " END: " + screenEnd + 
-				"\nArvore.getNO(): " + arvore.getRoot().getAluno().getMatricula());
-			int location = screenBegin + (screenEnd - screenBegin)/ 2;
-			System.out.println("meio " + location);
-			
-			
-			
-			
-			g.fillOval(location, height + 10, noSize, noSize);
-			g.drawString(Integer.toString(arvore.getRoot().getAluno().getMatricula()), location, height + 10);
+
+		int location = screenBegin + (screenEnd - screenBegin)/ 2;
 		
+		g.setColor(Color.black);
+		g.fillRect(location, height + 10, noLargura, noAltura);
+		
+		g.setColor(Color.white);
+		g.drawString(Integer.toString(arvore.getRoot().getAluno().getMatricula()), location + 5, height + 27);
+		g.drawString(arvore.getRoot().getAluno().getNome(), location + 5, height + 42);
+
 		
 		if (arvore.getLeftTree() != null) {
-			g.setColor(Color.black);
-			desenharArvore(arvore.getLeftTree(), screenBegin, location, height + noSize + 10, g);
+			desenharArvore(arvore.getLeftTree(), screenBegin, location, height + noAltura + 10, g);
 		}
 		if (arvore.getRightTree() != null) {
-			g.setColor(Color.blue);
-			desenharArvore(arvore.getRightTree(), location, screenEnd, height + noSize + 10, g);
+			desenharArvore(arvore.getRightTree(), location, screenEnd, height + noAltura + 10, g);
 		}
 	}
 	

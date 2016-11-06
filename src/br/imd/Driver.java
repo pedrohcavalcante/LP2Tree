@@ -1,7 +1,6 @@
 package br.imd;
 
 import java.awt.Canvas;
-import java.awt.Graphics;
 /**
  * 
  * @author Jonathan Rocha de Almeira 
@@ -11,15 +10,10 @@ import java.awt.Graphics;
  *
  */
 @SuppressWarnings("serial")
-public class Driver  extends Canvas {
-	
-	
-	static Graphics g2;
-	
+public class Driver  extends Canvas {	
 	
 	public static void main(String[] args){
 		
-		//Tree raiz = new Tree();
 		// Nivel 1
 		/*raiz.insereAluno(200, "Tristram"); 
 		// Nivel 2
@@ -41,27 +35,6 @@ public class Driver  extends Canvas {
 		raiz.insereAluno(355, "Pantalaimon");
 		*/
 //		System.out.println("");
-//		
-//		System.out.print("InOrdem: ");
-//		raiz.percorrerInOrdem();
-//		System.out.println("");
-//		
-//		System.out.print("PreOrdem: ");
-//		raiz.percorrerPreOrdem();
-//		System.out.println("");
-//		
-//		System.out.print("PosOrdem: ");
-//		raiz.percorrerPosOrdem();
-//		System.out.println("");
-//		System.out.println("");
-//		
-//		System.out.println("Busca: raiz.busca(155)");
-//		No resultado = raiz.busca(155);
-//		System.out.println(resultado.getAluno().getNome());
-//		System.out.println("");
-//		System.out.println("");
-		
-		//Screen s = new Screen(raiz.isRoot);
 		
 		@SuppressWarnings("unused")
 		TelaPrincipal tela = new TelaPrincipal();
