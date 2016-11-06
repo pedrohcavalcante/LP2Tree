@@ -140,11 +140,11 @@ public class TelaPrincipal extends JFrame {
 		
 		if (arvore.getLeftTree() != null) {
 			g.setColor(Color.black);
-			desenharArvore(arvore.getLeftTree(), screenBegin, screenEnd / 2, height + noSize + 10, g);
+			desenharArvore(arvore.getLeftTree(), screenBegin, location, height + noSize + 10, g);
 		}
 		if (arvore.getRightTree() != null) {
 			g.setColor(Color.blue);
-			desenharArvore(arvore.getRightTree(), screenEnd / 2, screenEnd, height + noSize + 10, g);
+			desenharArvore(arvore.getRightTree(), location, screenEnd, height + noSize + 10, g);
 		}
 	}
 	
