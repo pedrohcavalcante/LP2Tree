@@ -28,41 +28,20 @@ public class TelaPrincipal extends JFrame {
 	
 	JMenuBar setJMenu = new JMenuBar();
 	JMenu options = new JMenu("Opções");
-	JMenu ordenar = new JMenu("Imprimir Árvore");
+	JMenu ordenar = new JMenu("Imprimir Árvore na linha de comando");
 	JMenuItem addElemento = new JMenuItem("Adicionar Elemento");
-	JMenuItem updtTree = new JMenuItem("Atualizar Árvore");
+	JMenuItem generateTree = new JMenuItem("Gerar arvore automatica");	
 	JMenuItem preOrder = new JMenuItem("Pre-Ordem");
 	JMenuItem porOrder = new JMenuItem("Pós-Ordem");
 	JMenuItem inOrder = new JMenuItem("In-Ordem");
 	/**
 	 * Tela principal onde sao instanciados os botoes e onde e feito o desenho da arvore
 	 */
-	public TelaPrincipal() {
-		
-		// Nivel 1
-		arvore.insereAluno(200, "Tristram"); 
-		// Nivel 2
-		arvore.insereAluno(100, "Blanche"); 
-		arvore.insereAluno(300, "Poe");
-		// Nivel 3
-		arvore.insereAluno(50, "Wilson");
-		arvore.insereAluno(150, "Jannet");
-		arvore.insereAluno(250, "Brad");
-		arvore.insereAluno(350, "Smith");
-		// Nivel 4
-		arvore.insereAluno(45, "Howard");
-		arvore.insereAluno(55, "Peter");
-		arvore.insereAluno(145, "Holly");
-		arvore.insereAluno(155, "Blue");
-		arvore.insereAluno(245, "Misty");
-		arvore.insereAluno(255, "Roocker");
-		arvore.insereAluno(345, "Lyra");
-		arvore.insereAluno(355, "Pantalaimon");
-		
+	public TelaPrincipal() {		
 		
 		setJMenu.add(options);
 		options.add(addElemento);
-		options.add(updtTree);
+		options.add(generateTree);
 		setJMenu.add(ordenar);
 		ordenar.add(preOrder);
 		ordenar.add(porOrder);
@@ -83,15 +62,6 @@ public class TelaPrincipal extends JFrame {
 		/**
 		 * Método onde e implementada a acao dos botoes
 		 */
-		updtTree.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Graphics g = canvas.getGraphics();
-				
-				desenharArvore(arvore, 0, screenSize.width, 0, g);
-			}
-		});
 		
 		addElemento.addActionListener(new ActionListener() {
 			
@@ -101,9 +71,41 @@ public class TelaPrincipal extends JFrame {
 				
 				// TODO: tratar erro de quando o input for textual e nao numerico
 				int matricula = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira matricula"));
-				
-				
+								
 				arvore.insereAluno(matricula, nome);
+				
+				Graphics g = canvas.getGraphics();				
+				desenharArvore(arvore, 0, screenSize.width, 0, g);
+			}
+		});
+		
+		generateTree.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				// Nivel 1
+				arvore.insereAluno(200, "Tristram"); 
+				// Nivel 2
+				arvore.insereAluno(100, "Blanche"); 
+				arvore.insereAluno(300, "Poe");
+				// Nivel 3
+				arvore.insereAluno(50, "Wilson");
+				arvore.insereAluno(150, "Jannet");
+				arvore.insereAluno(250, "Brad");
+				arvore.insereAluno(350, "Smith");
+				// Nivel 4
+				arvore.insereAluno(45, "Howard");
+				arvore.insereAluno(55, "Peter");
+				arvore.insereAluno(145, "Holly");
+				arvore.insereAluno(155, "Blue");
+				arvore.insereAluno(245, "Misty");
+				arvore.insereAluno(255, "Roocker");
+				arvore.insereAluno(345, "Lyra");
+				arvore.insereAluno(355, "Pantalaimon");
+				
+				Graphics g = canvas.getGraphics();				
+				desenharArvore(arvore, 0, screenSize.width, 0, g);
 			}
 		});
 		
