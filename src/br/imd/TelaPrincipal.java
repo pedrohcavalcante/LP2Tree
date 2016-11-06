@@ -93,16 +93,38 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String matricula = JOptionPane.showInputDialog(null, "Insira matricula a ser buscada");
-				
-				No resultado = arvore.busca(Integer.parseInt(matricula));
+				No resultado = null;
+				int aux = 0;
+				try{
+					resultado = arvore.busca(Integer.parseInt(matricula));
+					aux++;
+				}catch (NumberFormatException nfe){
+					matricula = JOptionPane.showInputDialog(null, "Parametro incorreto\nInsira matricula a ser buscada");
+					aux++;
+					try{
+						resultado = arvore.busca(Integer.parseInt(matricula));
+						aux++;
+					}catch (NullPointerException npe){
+						JOptionPane.showMessageDialog(null, "Árvore vazia");
+						aux++;
+					}
+				}catch (NullPointerException npe){
+					JOptionPane.showMessageDialog(null, "Árvore vazia");
+					aux++;
+				}
 				
 				// Nao achou
-				if (resultado == null) {
-					JOptionPane.showMessageDialog(null, "Matricula nao encontrada");
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "Matricula encontrada.\nAluno: " + resultado.getAluno().getNome());
-				}	
+					if (resultado == null && aux == 0) {
+						JOptionPane.showMessageDialog(null, "Matricula nao encontrada");
+					}
+					else {
+						try{
+							JOptionPane.showMessageDialog(null, "Matricula encontrada.\nAluno: " + resultado.getAluno().getNome());
+						}catch (NullPointerException npe){
+							System.out.println("erro");
+						}
+					}
+				
 			}
 		});
 		
