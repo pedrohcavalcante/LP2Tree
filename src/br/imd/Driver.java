@@ -2,7 +2,14 @@ package br.imd;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
-
+/**
+ * 
+ * @author Jonathan Rocha de Almeira 
+ * @author Pedro Henrique Bezerra Cavalcante
+ * 
+ * Implementacao de uma arvore binaria com interface grafica
+ *
+ */
 @SuppressWarnings("serial")
 public class Driver  extends Canvas {
 	
