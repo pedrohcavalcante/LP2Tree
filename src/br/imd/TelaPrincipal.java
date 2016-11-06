@@ -140,8 +140,13 @@ public class TelaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.print("Pre ordem: ");
-				arvore.percorrerPreOrdem();
+				
+				try{
+					System.out.print("Pre ordem: ");
+					arvore.percorrerPreOrdem();
+				}catch (NullPointerException npe){
+					JOptionPane.showMessageDialog(null, "Não existem elementos na árvore");
+				}
 				System.out.println("");
 			}
 		});
@@ -150,8 +155,13 @@ public class TelaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.print("Pos ordem: ");
-				arvore.percorrerPosOrdem();
+				
+				try{
+					System.out.print("Pos ordem: ");
+					arvore.percorrerPosOrdem();
+				}catch (NullPointerException npe){
+					JOptionPane.showMessageDialog(null, "Não existem elementos na árvore");
+				}
 				System.out.println("");
 			}
 		});
@@ -160,8 +170,13 @@ public class TelaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.print("In ordem: ");
-				arvore.percorrerInOrdem();
+				
+				try{
+					System.out.print("In ordem: ");
+					arvore.percorrerInOrdem();
+				}catch (NullPointerException npe){
+					JOptionPane.showMessageDialog(null, "Não existem elementos na árvore");
+				}
 				System.out.println("");
 			}
 		});
